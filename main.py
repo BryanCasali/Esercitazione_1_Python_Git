@@ -34,3 +34,13 @@ def main() -> None:
     allarmi = cubo.letture_in_allarme()
     for a in allarmi:
         print(f"- {a['sensore']} ({a['grandezza']}): {a['valore']} {a['unita']}")
+
+    print("\n=== Test Sensore Inesistente ===")
+    try:
+        cubo.registra_lettura("RAD-99", 100.0)
+    except KeyError as e:
+        print(f"Eccezione gestita correttamente -> {e}")
+
+
+if __name__ == "__main__":
+    main()
